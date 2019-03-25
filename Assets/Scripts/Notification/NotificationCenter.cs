@@ -209,7 +209,7 @@ public sealed class NotificationCenter : MonoBehaviour
     
     public static void PostDelayed(R.Id id)
     {
-        PostDelayed(new Notification(id));
+        PostDelayed(Notification.Create(id));
     }
 
     public static void PostDelayed(Notification msg)
@@ -282,36 +282,36 @@ public sealed class NotificationCenter : MonoBehaviour
     
 	public static void Post(R.Id id)
 	{
-		Instance.InternalPost(new Notification(id));
+		Instance.InternalPost(Notification.Create(id));
 	}
     
 	public static void Post(R.Id id, int data)
 	{
-        Instance.InternalPost(new Notification(id, data));
+        Instance.InternalPost(Notification.Create(id, data));
 	}
 	
 	public static void Post(R.Id id, float data)
 	{
-		Instance.InternalPost(new Notification(id, data));
+		Instance.InternalPost(Notification.Create(id, data));
 	}
 
     public static void Post(R.Id id, long data)
     {
-        Instance.InternalPost(new Notification(id, data));
+        Instance.InternalPost(Notification.Create(id, data));
     }
 
     public static void Post(R.Id id, string data)
 	{
-		Instance.InternalPost(new Notification(id, data));
+		Instance.InternalPost(Notification.Create(id, data));
 	}
 
 	public static void Post(R.Id id, bool data)
 	{
-        Instance.InternalPost(new Notification(id, data));
+        Instance.InternalPost(Notification.Create(id, data));
 	}
 
     public static void Post(R.Id id, object data)
     {
-        Instance.InternalPost(new Notification(id, data));
+        Instance.InternalPost(Notification.Create(id, data));
     }    
 }
