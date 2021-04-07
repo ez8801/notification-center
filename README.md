@@ -45,7 +45,7 @@ void Pause()
   // Posts a notification to the notification center.
   NotificationCenter.Post(R.Id.OnPaused);
   
-  // You can also posts a with parameters
+  // You can also posts a notification with parameters
   NotificationCenter.Post(R.Id.OnPaused, false);
   
   Notification notification = new Notification(R.Id.OnPaused, false);
