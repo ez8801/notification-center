@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Foundation.Notifications;
 
-public class MpBar : MonoBehaviour, IObserver
+public class HpBar : MonoBehaviour, INotificationReceiver
 {
     [SerializeField]
     private Slider _slider;
@@ -19,26 +20,24 @@ public class MpBar : MonoBehaviour, IObserver
 
     private void AddObserver()
     {
-        NotificationCenter.Instance.AddObserver(this, R.Id.OnMpChanged);
+        NotificationCenter.Instance.AddObserver(this, R.Id.OnHpChanged);
     }
 
     public void HandleNotification(Notification notification)
     {
-        switch (notification.id)
+        if (notification.Name == R.Id.OnHpChanged)
         {
-            case R.Id.OnMpChanged:
-                OnMpChanged(notification.intExtra);
-                break;
+            OnHpChanged(notification.IntExtra);
         }
     }
 
-    public void OnMpChanged(int mp)
+    public void OnHpChanged(int hp)
     {
-        _slider.value = (mp > 0) ? ((float)mp / _gameConfig.MaxHp) : 0f;
+        _slider.value = (hp > 0) ? ((float)hp / _gameConfig.MaxHp) : 0f;
     }
 
     private void OnDestroy()
     {
-        NotificationCenter.Instance.RemoveObserver(this, R.Id.OnMpChanged);
+        NotificationCenter.Instance.RemoveObserver(this, R.Id.OnHpChanged);
     }
 }

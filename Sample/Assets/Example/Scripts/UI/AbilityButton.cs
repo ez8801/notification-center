@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Foundation.Notifications;
 
-public class AbilityButton : MonoBehaviour, IObserver
+public class AbilityButton : MonoBehaviour, INotificationReceiver
 {
     [SerializeField]
     private Button _button;
@@ -24,11 +25,9 @@ public class AbilityButton : MonoBehaviour, IObserver
 
     public void HandleNotification(Notification notification)
     {
-        switch (notification.id)
+        if (notification.Name == R.Id.OnMpChanged)
         {
-            case R.Id.OnMpChanged:
-                OnMpChanged(notification.intExtra);
-                break;
+            OnMpChanged(notification.IntExtra);
         }
     }
 
