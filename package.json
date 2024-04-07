@@ -1,0 +1,8 @@
+{
+  "name": "com.ez.notification-center",
+  "version": "1.0.0",
+  "displayName": "Notification Center",
+  "type": "tool",
+  "dependencies": {
+  }
+}
